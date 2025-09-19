@@ -1,4 +1,4 @@
-require('dotenv').config(); // dotenv sirf ek baar
+require('dotenv').config();
 
 const express = require('express');
 const axios = require('axios');
@@ -10,13 +10,13 @@ const app = express();
 
 // ------------------- Middleware -------------------
 app.use(cors());
-app.use(express.json()); // POST request ke liye
+app.use(express.json());
 
 // ------------------- MongoDB Connect -------------------
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: 'movieDB'  // Explicit database
+    dbName: 'movieDB'
 })
 .then(() => console.log("✅ MongoDB connected"))
 .catch(err => console.error("❌ MongoDB connection error:", err));
@@ -42,16 +42,14 @@ app.use('/api/reviews', reviewRoutes);
 app.use('/api/reports', reportRoutes);
 
 // ------------------- Frontend Static Serve -------------------
-app.use(express.static(path.join(__dirname, '..')));
+app.use(express.static(path.join(__dirname, '../')));
 
 // ------------------- Safe Fallback for Frontend -------------------
-app.use((req, res, next) => {
+app.get('*', (req, res) => {
     if (!req.path.startsWith('/api')) {
-        res.sendFile(path.join(__dirname, '..', 'index.html'));
-    } else {
-        next();
+        res.sendFile(path.join(__dirname, '../', 'index.html'));
     }
 });
 
 // ------------------- Export for Vercel -------------------
-module.exports = app;   // ❌ app.listen nahi, ✅ export karna hai
+module.exports = app;
