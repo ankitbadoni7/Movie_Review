@@ -1,14 +1,17 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Movie Review Backend",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "18.x"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ankit Badoni",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.11.0",
