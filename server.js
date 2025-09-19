@@ -5,6 +5,8 @@ const PORT = 3000;
 
 // static files serve
 app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // routes
 app.get('/', (req, res) => {
