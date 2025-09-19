@@ -29,6 +29,19 @@ app.get('/reviews.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'reviews.html'));
 });
 
+app.get('/about.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'about.html'));
+});
+
+
+app.get('/report.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'report.html'));
+});
+
+app.get('/movie_review.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'movie_review.html'));
+});
+
 // CSS serve
 app.use('/css', express.static(path.join(__dirname, 'css')));
 // JS serve
