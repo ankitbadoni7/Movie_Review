@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineCritic - Discover & Review Movies</title>
+    <meta name="description"
+        content="Discover and review the latest movies. Read honest reviews and ratings from our community of movie enthusiasts.">
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/stylefunction.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar_">
+        <div class="nav_container">
+            <a href="#" class="logo">CineCritic</a>
+
+            <div class="nav_middle">
+                <div class="nav_links">
+                    <a href="#home">Home</a>
+                    <a href="#trending">Trending</a>
+                    <a href="#movies">Movies</a>
+                    <a href="#series">Series</a>
+                </div>
+                <!-- Auth + Search -->
+                <div class="auth_buttons">
+
+                    <!-- Search Bar -->
+                    <div class="nav_search">
+                        <input type="text" id="searchInput" placeholder="Type full name.........." />
+                        <button id="searchBtn">🔍</button>
+                    </div>
+                    <div id="searchResults"></div>
+                    <!-- Report -->
+                    <button id="reportBtn" class="btn btn-outline-secondary"
+                        onclick="window.location.href='report.html'">Report</button>
+                </div>
+            </div>
+            <button class="hamburger">☰</button>
+        </div>
+
+     <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+
+            <a href="#home">Home</a>
+            <a href="#trending">Trending</a>
+            <a href="#movies">Movies</a>
+            <a href="#series">Series</a>
+
+            <!-- <div class="nav_search">
+                <input type="text" id="searchInputMobile" placeholder="Type full name..........">
+                <button id="searchBtnMobile">🔍</button>
+            </div> -->
+            <div id="searchResultsMobile"></div>
+
+            <button id="reportBtnMobile" onclick="window.location.href='report.html'">Report</button>
+        </div>
+    </nav>
+
+
+
+    <main>
+
+        <section id="home" class="hero">
+            <div class="hero-slider">
+                <div class="slide active">
+                    <img src="img/spiderman.jpg" alt="Spiderman">
+                    <div class="hero-content">
+                        <h1>Spider-Man: No Way Home</h1>
+                        <h3>★★★★☆ (4/5) • 2h 28min • Action, Adventure, Sci-Fi • 2021 </h3>
+                        <p>Spider-Man: No Way Home follows Peter Parker as he navigates a multiverse crisis,
+                            facing villains from previous Spider-Man films. He must team up with unexpected allies to
+                            save reality.</p>
+                        <div class="btn_grp">
+                            <button id="trailerBtn" data-video="JfVOs4VSpmA">Play Trailer</button>
+                            <button class="reviewBtn">Review</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/batman.jpg" alt="Batman">
+                    <div class="hero-content">
+                        <h1>The Dark Knight</h1>
+                        <h3>★★★★★ (5/5) • 2h 32min • Action, Crime, Drama • 2008</h3>
+                        <p>
+                            Batman faces his greatest challenge when the Joker unleashes chaos on Gotham City.
+                            With the help of allies, Bruce Wayne must push his limits to uphold justice,
+                            questioning the line between hero and vigilante.
+                        </p>
+
+                        <div class="btn_grp">
+                            <button id="trailerBtn" data-video="EXeTwQWrcwY">Play Trailer</button>
+                            <button class="reviewBtn">Review</button>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/harry.jpg" alt="Harry Potter">
+                    <div class="hero-content">
+                        <h1>Harry Potter and the Sorcerer's Stone</h1>
+                        <h3>★★★★☆ (4/5) • 2h 32min • Fantasy, Adventure, Family • 2001</h3>
+                        <p>
+                            Harry Potter, an orphaned boy, discovers he is a wizard and begins his journey at
+                            Hogwarts School of Witchcraft and Wizardry. With his friends, he faces magical challenges
+                            and uncovers the dark secrets tied to Lord Voldemort.
+                        </p>
+
+                        <div class="btn_grp">
+                            <button id="trailerBtn" data-video="VyHV0BRtdxo">Play Trailer</button>
+                            <button class="reviewBtn">Review</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="pagination">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+            </div>
+        </section>
+
+
+        <!-- Trending Movies -->
+        <section class="trending-movies" id="trending">
+            <div class="section-header">
+                <h2 class="section-title">Trending This Month</h2>
+
+            </div>
+
+            <div class="movie-grid">
+                <!-- Movie Card 1 -->
+
+                <article class="movie-card" data-id="tt9362722">
+                    <div class="movie-poster poster_first">
+                        <div class="movie-rating">8.4</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Spider-Man: Across the Spider-Verse</h3>
+                        <div class="movie-meta">
+                            <span>2023</span>
+                            <span>2h 20m</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="movie-card" data-id="tt15398776">
+                    <div class="movie-poster poster_sec">
+                        <div class="movie-rating">8.1</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Oppenheimer</h3>
+                        <div class="movie-meta">
+                            <span>2023</span>
+                            <span>3h 0m</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="movie-card" data-id="tt1517268">
+                    <div class="movie-poster poster_third">
+                        <div class="movie-rating">7.9</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Barbie</h3>
+                        <div class="movie-meta">
+                            <span>2023</span>
+                            <span>1h 54m</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="movie-card" data-id="tt9603212">
+                    <div class="movie-poster poster_fourth">
+                        <div class="movie-rating">7.6</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Mission: Impossible - Dead Reckoning</h3>
+                        <div class="movie-meta">
+                            <span>2023</span>
+                            <span>2h 43m</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="movie-card" data-id="tt5090568">
+                    <div class="movie-poster poster_fifth">
+                        <div class="movie-rating">7.6</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Transformers: Rise of the Beasts</h3>
+                        <div class="movie-meta">
+                            <span>2023</span>
+                            <span>1h 57m</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            </div>
+        </section>
+
+
+        <!-- Movies -->
+        <section class="movies" id="movies">
+            <div class="section-header">
+                <h2 class="section-title">Movies</h2>
+
+                <div class="genre-buttons">
+                    <a href="movies.html?genre=action" class="genre-btn">Action</a> <!--iske liye js movies.html me h-->
+                    <a href="movies.html?genre=drama" class="genre-btn">Drama</a>
+                    <a href="movies.html?genre=sci-fi" class="genre-btn">Sci-fi</a>
+                    <a href="movies.html?genre=Comedy" class="genre-btn">Comedy</a>
+                </div>
+
+                <a href="movies.html" class="view-all"><i>View All </i></a>
+            </div>
+
+            <div class="reviewed-line">
+                <span class="reviewed-text">Just Reviewed</span>
+                <hr class="gradient-line">
+            </div>
+
+            <div class="movie-grid">
+                <!-- Movie Card 1 -->
+                <article class="movie-card" data-id="tt2935510">
+                    <div class="movie-poster poster_one">
+                        <div class="movie-rating">6.5</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Ad Astra</h3>
+                        <div class="movie-meta">
+                            <span>2019</span>
+                            <span>2h 4m</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Movie Card 2 -->
+                <article class="movie-card" data-id="tt1684562">
+                    <div class="movie-poster poster_two">
+                        <div class="movie-rating">6.8</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>The Fall Guy</h3>
+                        <div class="movie-meta">
+                            <span>2024</span>
+                            <span>2h</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Movie Card 3 -->
+                <article class="movie-card" data-id="tt13320622">
+                    <div class="movie-poster poster_three">
+                        <div class="movie-rating">8.5</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>The Lost City</h3>
+                        <div class="movie-meta">
+                            <span>2022</span>
+                            <span>1h 52m</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Movie Card 4 -->
+                <article class="movie-card" data-id="tt7181546">
+                    <div class="movie-poster poster_four">
+                        <div class="movie-rating">6.5</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Ballerina</h3>
+                        <div class="movie-meta">
+                            <span>2025</span>
+                            <span>1h 45m</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Movie Card 5 -->
+                <article class="movie-card" data-id="tt5433140">
+                    <div class="movie-poster poster_five">
+                        <div class="movie-rating">7.6</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Fast X</h3>
+                        <div class="movie-meta">
+                            <span>2023</span>
+                            <span>2h 21m</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Series -->
+        <section class="series" id="series">
+            <div class="section-header">
+                <h2 class="section-title">Series</h2>
+
+                <div class="genre-buttons">
+
+                    <a href="series.html?genre=action" class="genre-btn">Action</a> <!--iske liye js series.html me h-->
+                    <a href="series.html?genre=drama" class="genre-btn">Drama</a>
+                    <a href="series.html?genre=sci-fi" class="genre-btn">Sci-fi</a>
+                    <a href="series.html?genre=Comedy" class="genre-btn">Comedy</a>
+                </div>
+                <a href="series.html" class="view-all"><i>View All </i></a>
+            </div>
+
+            <div class="reviewed-line">
+                <span class="reviewed-text">Just Reviewed</span>
+                <hr class="gradient-line">
+            </div>
+
+            <div class="movie-grid">
+                <!-- Series Card 1 -->
+                <article class="movie-card" data-id="tt2560140">
+                    <div class="movie-poster poster_1">
+                        <div class="movie-rating">8.9</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Attack on Titan</h3>
+                        <div class="movie-meta">
+                            <span>2013–2023</span>
+                            <span>24m</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Series Card 2 -->
+                <article class="movie-card" data-id="tt0903747">
+                    <div class="movie-poster poster_2">
+                        <div class="movie-rating">9.5</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Breaking Bad</h3>
+                        <div class="movie-meta">
+                            <span>2008–2013</span>
+                            <span>47m</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Series Card 3 -->
+                <article class="movie-card" data-id="tt9140554">
+                    <div class="movie-poster poster_3">
+                        <div class="movie-rating">8.1</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Loki</h3>
+                        <div class="movie-meta">
+                            <span>2021–2024</span>
+                            <span>40m</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Series Card 4 -->
+                <article class="movie-card" data-id="tt1520211">
+                    <div class="movie-poster poster_4">
+                        <div class="movie-rating">8.3</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Walking Dead</h3>
+                        <div class="movie-meta">
+                            <span>2010–2022</span>
+                            <span>44m</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Series Card 5 -->
+                <article class="movie-card" data-id="tt6468322">
+                    <div class="movie-poster poster_5">
+                        <div class="movie-rating">8.3</div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Money Heist</h3>
+                        <div class="movie-meta">
+                            <span>2017–2021</span>
+                            <span>70m</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+
+        <!-- Recent Reviews
+        <section class="recent-reviews" id="reviews">
+            <div class="section-header">
+                <h2 class="section-title">Recent Reviews</h2>
+                <a href="reviews.html" class="view-all"><i>View All </i></a>
+            </div>
+
+            <div class="review-cards">
+               
+                <article class="review-card">
+                    <div class="review-header">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson"
+                            class="user-avatar" width="56" height="56">
+                        <div class="review-header-content">
+                            <h4>Sarah Johnson</h4>
+                            <div class="review-rating">
+
+                                <span>4/5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Spider-Man: Across the Spider-Verse</h3>
+                    <p class="review-text">Visually stunning with an engaging story that expands the Spider-Verse in
+                        exciting ways. The animation is groundbreaking, though the plot gets a bit convoluted at times.
+                    </p>
+
+                    <div class="review-meta">
+                        <span>2 days ago</span>
+
+                    </div>
+                </article>
+
+               
+                <article class="review-card">
+                    <div class="review-header">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="user-avatar"
+                            width="56" height="56">
+                        <div class="review-header-content">
+                            <h4>Michael Chen</h4>
+                            <div class="review-rating">
+                                <span>5/5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Oppenheimer</h3>
+                    <p class="review-text">Nolan's masterpiece. Cillian Murphy delivers a career-defining performance.
+                        The practical effects and cinematography are breathtaking. A must-watch in IMAX 70mm if
+                        possible.
+                    </p>
+
+                    <div class="review-meta">
+                        <span>1 week ago</span>
+                    </div>
+                </article>
+
+                
+                <article class="review-card">
+                    <div class="review-header">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Jessica Williams"
+                            class="user-avatar" width="56" height="56">
+                        <div class="review-header-content">
+                            <h4>Jessica Williams</h4>
+                            <div class="review-rating">
+                                <span>3/5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Barbie</h3>
+                    <p class="review-text">A fun, colorful ride with great performances, especially from Margot Robbie
+                        and Ryan Gosling. The social commentary is a bit heavy-handed at times, but it's an enjoyable
+                        watch overall.</p>
+
+                    <div class="review-meta">
+                        <span> 3 days ago</span>
+
+                    </div>
+                </article>
+            </div>
+        </section> -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-section ">
+                <h3 class="footer-logo">CineCritic</h3>
+                <p class="footer-about">Your trusted source for honest movie reviews, ratings, and recommendations from
+                    a community of passionate film enthusiasts.</p>
+
+                <div class="social-links">
+                    <a href="javascript:void(0)" aria-label="Facebook" data-tooltip="Coming soon">
+                        <img src="/img/fb.svg" alt="Facebook">
+                    </a>
+                    <a href="javascript:void(0)" aria-label="Instagram" data-tooltip="Coming soon">
+                        <img src="/img/insta.svg" alt="Instagram" width="60rem">
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section cat">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#"> Home</a></li>
+                    <li><a href="#movies"> Movies</a></li>
+                    <!-- <li><a href="reviews.html"> Reviews</a></li> -->
+                    <li><a href="#trending"> Trending</a></li>
+
+                </ul>
+            </div>
+
+            <!-- Categories -->
+            <div class="footer-section  cat">
+                <h4>Movies</h4>
+                <ul class="footer-links">
+                    <!--iske liye js movies.html me h-->
+
+                    <li><a href="movies.html?genre=action">Action</a></li>
+                    <li> <a href="movies.html?genre=drama"> Drama</a></li>
+                    <li><a href="movies.html?genre=Comedy">Comedy</a></li>
+                    <li> <a href="movies.html?genre=sci-fi">Sci-fi</a></li>
+
+                </ul>
+            </div>
+
+            <div class="footer-section cat">
+                <h4>Series</h4>
+                <ul class="footer-links">
+
+                    <li> <a href="series.html?genre=action">Action</a> </li>
+                    <li><a href="series.html?genre=drama">Drama</a></li>
+                    <li> <a href="series.html?genre=Comedy">Comedy</a></li>
+                    <li> <a href="series.html?genre=sci-fi">Sci-fi</a></li>
+
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-section newsletter">
+                <h4>Newsletter</h4>
+                <p>Subscribe to our newsletter for the latest movie reviews and recommendations.</p>
+
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 CineCritic. All rights reserved.</p>
+
+            <div class="footer-legal">
+
+                <a href="about.html">About us</a>
+
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js" defer></script>
+    <script src="js/search.js" defer></script>
+
+</body>
+
+</html>

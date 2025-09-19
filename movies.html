@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineCritic - Discover & Review Movies</title>
+    <link rel="stylesheet" href="css/movies-styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar_mov">
+        <div class="navbar_mov-logo">
+            <a href="index.html" class="logo">CineCritic</a>
+        </div>
+
+        <div class="navbar_mov-title">
+            <a href="movies.html" style="text-decoration: none;">
+                <h2 style="color: #f5c518; cursor: pointer;">MOVIES</h2>
+            </a>
+        </div>
+
+        <div class="navbar_mov-filters">
+            <div class="dropdown">
+                <button class="dropbtn">By Year </button>
+                <div class="dropdown-content">
+                    <a href="#" data-filter="2024">2024</a>
+                    <a href="#" data-filter="2023">2023</a>
+                    <a href="#" data-filter="2022">2022</a>
+                    <a href="#" data-filter="all">All</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">By Genre</button>
+                <div class="dropdown-content">
+                    <a href="#" data-type="genre" data-filter="action">Action</a>
+                    <a href="#" data-type="genre" data-filter="drama">Drama</a>
+                    <a href="#" data-type="genre" data-filter="comedy">Comedy</a>
+                    <a href="#" data-type="genre" data-filter="sci-fi">Sci-Fi</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" placeholder="Search for movies...">
+            <button class="search-btn"> Search</button>
+        </div>
+    </div>
+
+    <!-- Movie Grid -->
+    <div class="movie-grid">
+        <!-- Movie Card 1 -->
+        <div class="movie-card" data-year="2022" data-id="tt13320622">
+            <div class="movie-poster">
+                <img src="img/lostcity.jpg" alt="Movie Poster">
+                <div class="movie-rating">8.5</div>
+            </div>
+            <div class="movie-info">
+                <h3>The Lost City</h3>
+                <p>2022 • Comedy/Adventure • 1h 52m</p>
+            </div>
+        </div>
+
+        <div class="movie-card" data-year="2024" data-id="tt1684562">
+            <div class="movie-poster">
+                <img src="img/fallguy.jpg" alt="Movie Poster">
+                <div class="movie-rating">6.8</div>
+            </div>
+            <div class="movie-info">
+                <h3>The Fall Guy</h3>
+                <p>2024 • Action/Comedy • 2h 0m</p>
+            </div>
+        </div>
+
+        <div class="movie-card" data-year="2023" data-id="tt15398776">
+            <div class="movie-poster">
+                <img src="img/opp.jpg" alt="Movie Poster">
+                <div class="movie-rating">8.3</div>
+            </div>
+            <div class="movie-info">
+                <h3>Oppenheimer</h3>
+                <p>2023 • Drama/Thriller • 3h 0m</p>
+            </div>
+        </div>
+
+        <div class="movie-card" data-year="2019" data-id="tt2935510">
+            <div class="movie-poster">
+                <img src="img/adastra.jpg" alt="Movie Poster">
+                <div class="movie-rating">6.5</div>
+            </div>
+            <div class="movie-info">
+                <h3>Ad Astra</h3>
+                <p>2019 • Sci-Fi/Adventure • 2h 4m</p>
+            </div>
+        </div>
+
+        <div class="movie-card" data-year="2023" data-id="tt9362722">
+            <div class="movie-poster">
+                <img src="img/spiderverse.jpg" alt="Movie Poster">
+                <div class="movie-rating">8.4</div>
+            </div>
+            <div class="movie-info">
+                <h3>Spider-Man: Across the Spider-Verse</h3>
+                <p>2023 • Marvel/Adventure • 2h 20m</p>
+            </div>
+        </div>
+
+        <div class="movie-card" data-year="2023" data-id="tt1517268">
+            <div class="movie-poster">
+                <img src="img/barbie.jpg" alt="Movie Poster">
+                <div class="movie-rating">7.9</div>
+            </div>
+            <div class="movie-info">
+                <h3>Barbie</h3>
+                <p>2023 • Fantasy/Comedy • 1h 54m</p>
+            </div>
+        </div>
+
+        <div class="movie-card" data-year="2023" data-id="tt9603212">
+            <div class="movie-poster">
+                <img src="img/misimp.jpg" alt="Movie Poster">
+                <div class="movie-rating">7.6</div>
+            </div>
+            <div class="movie-info">
+                <h3>Mission: Impossible - Dead Reckoning</h3>
+                <p>2023 • Action • 2h 43m</p>
+            </div>
+        </div>
+
+        <div class="movie-card" data-year="2023" data-id="tt5090568">
+            <div class="movie-poster">
+                <img src="img/trans.jpg" alt="Movie Poster">
+                <div class="movie-rating">7.6</div>
+            </div>
+            <div class="movie-info">
+                <h3>Transformers: Rise of the Beasts</h3>
+                <p>2023 • Sci-Fi/Action • 1h 57m</p>
+            </div>
+        </div>
+
+        <div class="movie-card" data-year="2023" data-id="tt7181546">
+            <div class="movie-poster">
+                <img src="img/ball.jpg" alt="Movie Poster">
+                <div class="movie-rating">6.5</div>
+            </div>
+            <div class="movie-info">
+                <h3>Ballerina</h3>
+                <p>2025 • Drama/Action • 1h 45m</p>
+            </div>
+        </div>
+
+        <div class="movie-card" data-year="2023" data-id="tt5433140">
+            <div class="movie-poster">
+                <img src="img/fast.jpg" alt="Movie Poster">
+                <div class="movie-rating">7.1</div>
+            </div>
+            <div class="movie-info">
+                <h3>Fast X</h3>
+                <p>2023 • Action • 2h 21m</p>
+            </div>
+        </div>
+
+        <div class="movie-card" data-year="2008" data-id="tt0468569">
+            <div class="movie-poster">
+                <img src="img/darkknight.jpg" alt="Movie Poster">
+                <div class="movie-rating">7.1</div>
+            </div>
+            <div class="movie-info">
+                <h3>The Dark Knight</h3>
+                <p>2008 • Action/Crime/Drama • 2h 32m</p>
+            </div>
+        </div>
+
+        <div class="movie-card" data-year="2021" data-id="tt10872600">
+            <div class="movie-poster">
+                <img src="img/spiderman.jpg" alt="Movie Poster">
+                <div class="movie-rating">7.5</div>
+            </div>
+            <div class="movie-info">
+                <h3>Spider-Man: No Way Home</h3>
+                <p>2021 • Action/Adventure • 2h 28m</p>
+            </div>
+        </div>
+
+        <div class="movie-card" data-year="2001" data-id="tt0241527">
+            <div class="movie-poster">
+                <img src="img/harry.jpg" alt="Movie Poster">
+                <div class="movie-rating">7.1</div>
+            </div>
+            <div class="movie-info">
+                <h3>Harry Potter and the Sorcerer's Stone</h3>
+                <p>2001 • Fantasy/Adventure • 2h 32m</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-section">
+                <h3 class="footer-logo">CineCritic</h3>
+                <p class="footer-about">Your trusted source for honest movie reviews, ratings, and recommendations from
+                    a community of passionate film enthusiasts.</p>
+
+                <div class="social-links">
+                    <a href="javascript:void(0)" aria-label="Facebook" data-tooltip="Coming soon">
+                        <img src="/img/fb.svg" alt="Facebook">
+                    </a>
+                    <a href="javascript:void(0)" aria-label="Instagram" data-tooltip="Coming soon">
+                        <img src="/img/insta.svg" alt="Instagram" width="60rem">
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h4 class="ql">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <!-- <li><a href="reviews.html"> Reviews</a></li> -->
+                    <li><a href="index.html#trending">Trending</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-section newsletter">
+                <h4>Newsletter</h4>
+                <p>Subscribe to our newsletter for the latest movie reviews and recommendations.</p>
+
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 CineCritic. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="about.html">About us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const filterLinks = document.querySelectorAll('[data-filter]');
+            const movieCards = document.querySelectorAll('.movie-card');
+            const searchInput = document.querySelector('.search-box input');
+            const searchButton = document.querySelector('.search-btn');
+            const movieGrid = document.querySelector('.movie-grid');
+
+            const activeFilters = { year: "all", genre: "all" };
+
+            // "No movies found" element
+            let noMovies = document.createElement('div');
+            noMovies.textContent = "No movies found";
+            noMovies.style.textAlign = "center";
+            noMovies.style.fontSize = "1.5rem";
+            noMovies.style.margin = "2rem";
+            noMovies.style.display = "none";
+            movieGrid.appendChild(noMovies);
+
+            function applyFilters() {
+                let anyVisible = false;
+                movieCards.forEach(card => {
+                    const cardYear = card.getAttribute("data-year").toLowerCase();
+                    const cardGenresText = card.querySelector(".movie-info p").textContent.toLowerCase();
+                    const parts = cardGenresText.split("•").map(p => p.trim());
+                    const onlyGenres = parts[1] ? parts[1] : "";
+
+                    let show = true;
+
+                    if (activeFilters.year !== "all" && cardYear !== activeFilters.year) {
+                        show = false;
+                    }
+                    if (activeFilters.genre !== "all" && !onlyGenres.includes(activeFilters.genre)) {
+                        show = false;
+                    }
+
+                    card.style.display = show ? "block" : "none";
+                    if (show) anyVisible = true;
+                });
+
+                noMovies.style.display = anyVisible ? "none" : "block";
+            }
+
+            filterLinks.forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+
+                    const type = this.getAttribute("data-type") || "year";
+                    const filterValue = this.getAttribute("data-filter").toLowerCase();
+
+                    if (type === "year") {
+                        activeFilters.year = filterValue;
+                        activeFilters.genre = "all";
+                    } else if (type === "genre") {
+                        activeFilters.genre = filterValue;
+                        activeFilters.year = "all";
+                    }
+
+                    searchInput.value = "";
+                    applyFilters();
+                });
+            });
+
+            // Search button
+            searchButton.addEventListener('click', function () {
+                const query = searchInput.value.toLowerCase().trim();
+                let anyVisible = false;
+
+                movieCards.forEach(card => {
+                    const title = card.querySelector("h3").textContent.toLowerCase();
+                    if (title.includes(query)) {
+                        card.style.display = "block";
+                        anyVisible = true;
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+
+                noMovies.style.display = anyVisible ? "none" : "block";
+                activeFilters.year = "all";
+                activeFilters.genre = "all";
+            });
+
+            searchInput.addEventListener("keypress", function (e) {
+                if (e.key === "Enter") searchButton.click();
+            });
+
+            // ✅ URL parameter se genre filter
+            const urlParams = new URLSearchParams(window.location.search);
+            const genreParam = urlParams.get('genre');
+            if (genreParam) {
+                activeFilters.genre = genreParam.toLowerCase();
+                activeFilters.year = "all";
+                applyFilters();
+            } else {
+                applyFilters();
+            }
+        });
+
+
+        // Movie card click → redirect
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".movie-card").forEach(card => {
+                card.addEventListener("click", () => {
+                    const movieId = card.getAttribute("data-id");
+                    window.location.href = `movie_review.html?id=${movieId}`;
+                });
+            });
+        });
+
+        // ✅ movieId parameter handle karo
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const movieId = urlParams.get('movieId');
+            const allCards = document.querySelectorAll('.movie-card');
+
+            if (movieId) {
+                allCards.forEach(card => {
+                    if (card.getAttribute('data-id') === movieId) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector(".newsletter-form");
+
+    if (!form) return; // form nahi mila toh exit
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault(); // page reload rokega
+        alert("This is a demo project. Subscribing won’t give you real emails");
+        form.reset(); // input clear ho jaaye
+    });
+});
+
+    </script>
+</body>
+</html>

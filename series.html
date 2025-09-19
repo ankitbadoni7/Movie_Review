@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineCritic - Discover & Review Series</title>
+    <link rel="stylesheet" href="css/series-styles.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar_mov">
+        <div class="navbar_mov-logo">
+            <a href="/index.html" class="logo">CineCritic</a>
+        </div>
+
+        <div class="navbar_mov-title">
+            <a href="series.html" style="text-decoration: none;">
+                <h2 style="color: #f5c518; cursor: pointer;">SERIES</h2>
+            </a>
+        </div>
+
+        <div class="navbar_mov-filters">
+            <div class="dropdown">
+                <button class="dropbtn">By Genre</button>
+                <div class="dropdown-content">
+                    <a href="#" data-type="genre" data-filter="action">Action</a>
+                    <a href="#" data-type="genre" data-filter="drama">Drama</a>
+                    <a href="#" data-type="genre" data-filter="comedy">Comedy</a>
+                    <a href="#" data-type="genre" data-filter="sci-fi">Sci-Fi</a>
+                    <a href="#" data-type="genre" data-filter="all">All</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" placeholder="Search for series...">
+            <button class="search-btn"> Search</button>
+        </div>
+    </div>
+
+    <!-- Series Grid -->
+    <div class="series-grid">
+        <!-- Example Cards -->
+        <div class="series-card" data-year="2013" data-id="tt0903747">
+            <div class="series-poster">
+                <img src="img/bad.jpg" alt="Series Poster">
+            </div>
+            <div class="series-info">
+                <h3>Breaking Bad</h3>
+                <p>2008–2013 • Drama/Action • S5 62EP</p>
+            </div>
+        </div>
+
+        <div class="series-card" data-year="2023" data-id="tt9140554">
+            <div class="series-poster">
+                <img src="img/loki.jpg" alt="Series Poster">
+            </div>
+            <div class="series-info">
+                <h3>Loki</h3>
+                <p>2021-2023 • Sci-Fi/Marvel • S2 12EP</p>
+            </div>
+        </div>
+
+        <div class="series-card" data-year="2022" data-id="tt1520211">
+            <div class="series-poster">
+                <img src="img/walking.jpg" alt="Series Poster">
+            </div>
+            <div class="series-info">
+                <h3>The Walking Dead</h3>
+                <p>2010-2022 • Drama/Horror • S11 177EP</p>
+            </div>
+        </div>
+
+        <div class="series-card" data-year="2023" data-id="tt10986410">
+            <div class="series-poster">
+                <img src="img/ted4.jpeg" alt="Series Poster">
+            </div>
+            <div class="series-info">
+                <h3>Ted Lasso</h3>
+                <p>2023 • Comedy/Drama • S3 34EP</p>
+            </div>
+        </div>
+
+        <div class="series-card" data-year="2023" data-id="tt2560140">
+            <div class="series-poster">
+                <img src="img/aot.jpg" alt="Series Poster">
+            </div>
+            <div class="series-info">
+                <h3>Attack of Titan 3</h3>
+                <p>2013-2023 • Anime/Action • S4 94EP </p>
+            </div>
+        </div>
+
+        <div class="series-card" data-year="2023" data-id="tt6468322">
+            <div class="series-poster">
+                <img src="img/money.jpg" alt="Series Poster">
+            </div>
+            <div class="series-info">
+                <h3>Money Heist</h3>
+                <p>2017-2021 • Drama/Crime • S5 48E</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-logo">CineCritic</h3>
+                <p class="footer-about">Your trusted source for honest movie reviews, ratings, and recommendations from
+                    a community of passionate film enthusiasts.</p>
+                <div class="social-links">
+                    <a href="javascript:void(0)" aria-label="Facebook" data-tooltip="Coming soon">
+                        <img src="/img/fb.svg" alt="Facebook">
+                    </a>
+                    <a href="javascript:void(0)" aria-label="Instagram" data-tooltip="Coming soon">
+                        <img src="/img/insta.svg" alt="Instagram" width="60rem">
+                    </a>
+
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4 class="ql">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html"> Home</a></li>
+                    <li><a href="index.html#trending"> Trending</a></li>
+                </ul>
+            </div>
+            <div class="footer-section newsletter">
+                <h4>Newsletter</h4>
+                <p>Subscribe to our newsletter for the latest movie reviews and recommendations.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CineCritic. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="about.html">About us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const filterLinks = document.querySelectorAll('[data-filter]');
+            const seriesCards = document.querySelectorAll('.series-card');
+            const searchInput = document.querySelector('.search-box input');
+            const searchButton = document.querySelector('.search-btn');
+            const seriesGrid = document.querySelector('.series-grid');
+
+            const activeFilters = { year: "all", genre: "all" };
+
+            // "No series found"
+            let noSeries = document.createElement('div');
+            noSeries.textContent = "No series found";
+            noSeries.style.textAlign = "center";
+            noSeries.style.fontSize = "1.5rem";
+            noSeries.style.margin = "2rem";
+            noSeries.style.display = "none";
+            seriesGrid.appendChild(noSeries);
+
+            function getOnlyGenres(card) {
+                const text = card.querySelector(".series-info p").textContent.toLowerCase();
+                const parts = text.split("•").map(p => p.trim());
+                return parts[1] ? parts[1] : "";
+            }
+
+            function applyFilters() {
+                let anyVisible = false;
+                seriesCards.forEach(card => {
+                    const cardYear = card.getAttribute("data-year").toLowerCase();
+                    const onlyGenres = getOnlyGenres(card);
+
+                    let show = true;
+                    if (activeFilters.year !== "all" && cardYear !== activeFilters.year) show = false;
+                    if (activeFilters.genre !== "all" && !onlyGenres.includes(activeFilters.genre)) show = false;
+
+                    card.style.display = show ? "block" : "none";
+                    if (show) anyVisible = true;
+                });
+                noSeries.style.display = anyVisible ? "none" : "block";
+            }
+
+            filterLinks.forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const type = this.getAttribute("data-type") || "year";
+                    const filterValue = this.getAttribute("data-filter").toLowerCase();
+                    if (type === "year") {
+                        activeFilters.year = filterValue;
+                        activeFilters.genre = "all";
+                    } else if (type === "genre") {
+                        activeFilters.genre = filterValue;
+                        activeFilters.year = "all";
+                    }
+                    searchInput.value = "";
+                    applyFilters();
+                });
+            });
+
+            // Search
+            searchButton.addEventListener('click', function () {
+                const query = searchInput.value.toLowerCase().trim();
+                let anyVisible = false;
+                seriesCards.forEach(card => {
+                    const title = card.querySelector("h3").textContent.toLowerCase();
+                    if (title.includes(query)) {
+                        card.style.display = "block";
+                        anyVisible = true;
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+                noSeries.style.display = anyVisible ? "none" : "block";
+                activeFilters.year = "all";
+                activeFilters.genre = "all";
+            });
+            searchInput.addEventListener("keypress", e => { if (e.key === "Enter") searchButton.click(); });
+        });
+
+        // Genre filter from URL (?genre=action)
+        document.addEventListener("DOMContentLoaded", function () {
+            const seriesCards = document.querySelectorAll('.series-card');
+            function getOnlyGenres(card) {
+                const text = card.querySelector(".series-info p").textContent.toLowerCase();
+                const parts = text.split("•").map(p => p.trim());
+                return parts[1] ? parts[1] : "";
+            }
+            function applyGenreFilter(genre) {
+                seriesCards.forEach(card => {
+                    const onlyGenres = getOnlyGenres(card);
+                    if (genre === "all" || onlyGenres.includes(genre)) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            }
+            const urlParams = new URLSearchParams(window.location.search);
+            const genreParam = urlParams.get('genre');
+            if (genreParam) applyGenreFilter(genreParam.toLowerCase());
+            else applyGenreFilter("all");
+        });
+
+        // Card click → movie_review.html
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".series-card").forEach(card => {
+                card.addEventListener("click", () => {
+                    const movieId = card.getAttribute("data-id");
+                    window.location.href = `movie_review.html?id=${movieId}`;
+                });
+            });
+        });
+
+        // ?seriesId= param → show only that card
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const seriesId = urlParams.get('seriesId');
+            const allCards = document.querySelectorAll('.series-card');
+            if (seriesId) {
+                allCards.forEach(card => {
+                    card.style.display = card.getAttribute('data-id') === seriesId ? 'block' : 'none';
+                });
+            }
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector(".newsletter-form");
+
+    if (!form) return; // form nahi mila toh exit
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault(); // page reload rokega
+        alert("This is a demo project. Subscribing won’t give you real emails");
+        form.reset(); // input clear ho jaaye
+    });
+});
+
+    </script>
+</body>
+</html>
