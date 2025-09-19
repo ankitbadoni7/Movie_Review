@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 // ------------------- Middleware -------------------
 app.use(cors());
@@ -43,11 +42,9 @@ app.use('/api/reviews', reviewRoutes);
 app.use('/api/reports', reportRoutes);
 
 // ------------------- Frontend Static Serve -------------------
-// Root folder me jo HTML/CSS/JS/IMG files hain, wo serve honge
 app.use(express.static(path.join(__dirname, '..')));
 
 // ------------------- Safe Fallback for Frontend -------------------
-// Agar koi unknown route aaya jo /api se start nahi hota → index.html
 app.use((req, res, next) => {
     if (!req.path.startsWith('/api')) {
         res.sendFile(path.join(__dirname, '..', 'index.html'));
@@ -56,5 +53,5 @@ app.use((req, res, next) => {
     }
 });
 
-// ------------------- Start Server -------------------
-app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+// ------------------- Export for Vercel -------------------
+module.exports = app;   // ❌ app.listen nahi, ✅ export karna hai
