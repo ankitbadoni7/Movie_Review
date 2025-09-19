@@ -42,12 +42,13 @@ app.use('/api/reviews', reviewRoutes);
 app.use('/api/reports', reportRoutes);
 
 // ------------------- Frontend Static Serve -------------------
-app.use(express.static(path.join(__dirname, '../')));
+app.use(express.static(path.join(__dirname, '..')));
 
-// ------------------- Safe Fallback for Frontend -------------------
 app.get('*', (req, res) => {
     if (!req.path.startsWith('/api')) {
-        res.sendFile(path.join(__dirname, '../', 'index.html'));
+        res.sendFile(path.join(__dirname, '..', 'index.html'));
+    } else {
+        res.status(404).json({ error: 'API route not found' });
     }
 });
 
