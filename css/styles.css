@@ -1340,3 +1340,8 @@ section {
     }
 }
 
+@media (max-width: 500px){
+    .hero-content{
+       width: 18rem;
+    }
+}

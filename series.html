@@ -17,7 +17,7 @@
     <!-- Navbar -->
     <nav class="navbar_mov">
         <div class="navbar_mov-logo">
-            <a href="/index.html" class="logo">CineCritic</a>
+            <a href="index.html" class="logo">CineCritic</a>
         </div>
 
         <div class="navbar_mov-title">
@@ -276,17 +276,18 @@
             }
         });
         document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector(".newsletter-form");
+            const form = document.querySelector(".newsletter-form");
 
-    if (!form) return; // form nahi mila toh exit
+            if (!form) return; // form nahi mila toh exit
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault(); // page reload rokega
-        alert("This is a demo project. Subscribing won’t give you real emails");
-        form.reset(); // input clear ho jaaye
-    });
-});
+            form.addEventListener("submit", (e) => {
+                e.preventDefault(); // page reload rokega
+                alert("This is a demo project. Subscribing won’t give you real emails");
+                form.reset(); // input clear ho jaaye
+            });
+        });
 
     </script>
 </body>
+
 </html>
