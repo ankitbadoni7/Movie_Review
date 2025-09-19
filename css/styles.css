@@ -574,75 +574,21 @@ section {
          box-shadow: 0 16px 40px rgba(0,0,0,0.9);        
 }
 
-.poster_first {
-  background-image: url('/img/spiderverse.jpg');
-}
-
-.poster_sec {
-  background-image: url('/img/opp.jpg');
-}
-
-.poster_third {
-  background-image: url('/img/barbie.jpg');
-}
-
-.poster_fourth {
-  background-image: url('/img/misimp.jpg');
-}
-.poster_fifth {
-  background-image: url('/img/trans.jpg');
-}
-
-/* Movies */
-.poster_one {
-  background-image: url('/img/adastra.jpg');
-}
-
-.poster_two {
-  background-image: url('/img/fallguy.jpg');
-}
-
-.poster_three {
-  background-image: url('/img/lostcity.jpg');
-}
-
-.poster_four {
-  background-image: url('/img/ball.jpg');
-}
-.poster_five {
-  background-image: url('/img/fast.jpg');
-}
-
-
-/* Series */
-.poster_1 {
-  background-image: url('/img/aot.jpg');
-}
-
-.poster_2 {
-  background-image: url('/img/bad.jpg');
-}
-
-.poster_3 {
-  background-image: url('/img/loki.jpg');
-}
-
-.poster_4 {
-  background-image: url('/img/walking.jpg');
-}
-.poster_5 {
-  background-image: url('/img/money.jpg');
-}
-
 
 
 .movie-poster {
     position: relative;
     height: 320px;
-    background-size: cover;
-    background-position: center;
-    background-color: var(--gray-100);
+    background: none;  /* remove background-image */
     z-index: 0;
+    overflow: hidden;
+}
+
+.movie-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* image pura div cover karega */
+    display: block;
 }
 
 .movie-poster::before {
