@@ -67,3 +67,9 @@ app.get('*', (req, res) => {
 
 // ------------------- Export for Vercel -------------------
 module.exports = app;
+
+
+// ------------------- Export for Vercel -------------------
+module.exports = (req, res) => {
+  app(req, res);
+};
