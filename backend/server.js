@@ -1,4 +1,4 @@
-// Load environment variables first
+// ------------------- Load environment variables -------------------
 require('dotenv').config();
 
 console.log('Starting server...');
@@ -16,17 +16,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Request logging middleware
+// Request logging
 app.use((req, res, next) => {
     console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
     next();
 });
 
 // ------------------- MongoDB Connect -------------------
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/movieDB';
+
 console.log('Connecting to MongoDB...');
 console.log('MongoDB URI:', process.env.MONGODB_URI ? '***MongoDB URI is set***' : 'MongoDB URI is NOT set!');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/movieDB', {
+mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     dbName: 'movieDB'
@@ -39,6 +41,9 @@ const OMDB_API_KEY = process.env.OMDB_API_KEY;
 
 app.get('/api/movie/:id', async (req, res) => {
     const id = req.params.id;
+    if (!OMDB_API_KEY) {
+        return res.status(500).json({ error: 'OMDB API key not set!' });
+    }
     try {
         const response = await axios.get(`http://www.omdbapi.com/?i=${id}&apikey=${OMDB_API_KEY}`);
         res.json(response.data);
@@ -54,12 +59,14 @@ const reportRoutes = require('./routes/reportRoutes');
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/reports', reportRoutes);
 
-// ------------------- Frontend Static Serve -------------------
-app.use(express.static(path.join(__dirname, '..')));
+// ------------------- Frontend Static Serve (Root Folder) -------------------
+const frontendPath = path.join(__dirname, '..');
+
+app.use(express.static(frontendPath));
 
 app.get('*', (req, res) => {
     if (!req.path.startsWith('/api')) {
-        res.sendFile(path.join(__dirname, '..', 'index.html'));
+        res.sendFile(path.join(frontendPath, 'index.html'));
     } else {
         res.status(404).json({ error: 'API route not found' });
     }
