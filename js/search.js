@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    
     // "No result found" message
     let noResultDiv = document.createElement('div');
     noResultDiv.textContent = "No movie or series found!";

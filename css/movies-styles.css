@@ -39,8 +39,9 @@ body {
     background-size: cover;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+     -webkit-backdrop-filter: blur(10px);
      backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+   
 }
 
 /* Navbar Styles */
@@ -50,8 +51,9 @@ body {
     align-items: center;
     padding: 1.2rem 5%;
     background: rgba(15, 15, 25, 0.8);
-    backdrop-filter: blur(12px);
+  
     -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--glass-border);
     position: sticky;
     top: 0;
@@ -232,8 +234,8 @@ body {
     transition: var(--transition);
     box-shadow: var(--box-shadow);
     border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
     transform-style: preserve-3d;
     transform: translateZ(0);
     position: relative;
