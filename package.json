@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Movie Review Application",
   "main": "index.js",
+  "engines":{
+    "node": "22.x"
+  },
   "scripts": {
     "start": "node backend/server.js",
     "dev": "nodemon backend/server.js",
@@ -25,8 +28,6 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
-  },
-  "engines": {
-    "node": ">=14.x"
   }
+  
 }
