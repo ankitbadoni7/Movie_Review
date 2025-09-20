@@ -1,49 +1,33 @@
-// ------------------- Load environment variables -------------------
-require('dotenv').config();
-
-console.log('Starting server...');
-console.log('Environment:', process.env.NODE_ENV || 'development');
+require('dotenv').config(); // dotenv sirf ek baar
 
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const path = require('path');
 
 const app = express();
+const PORT = 5000;
 
-// ------------------- Middleware -------------------
+// Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); // ✅ POST ke liye zaroori
 
-// Request logging
-app.use((req, res, next) => {
-    console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
-    next();
-});
-
-// ------------------- MongoDB Connect -------------------
-const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/movieDB';
-
-console.log('Connecting to MongoDB...');
-console.log('MongoDB URI:', process.env.MONGODB_URI ? '***MongoDB URI is set***' : 'MongoDB URI is NOT set!');
-
-mongoose.connect(mongoURI, {
+// MongoDB connect
+// MongoDB connect
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: 'movieDB'
+    dbName: 'movieDB'  // ✅ Explicit database
 })
 .then(() => console.log("✅ MongoDB connected"))
 .catch(err => console.error("❌ MongoDB connection error:", err));
 
-// ------------------- OMDB API Route -------------------
+// OMDB API key from .env
 const OMDB_API_KEY = process.env.OMDB_API_KEY;
 
+// API route to fetch movie by ID
 app.get('/api/movie/:id', async (req, res) => {
     const id = req.params.id;
-    if (!OMDB_API_KEY) {
-        return res.status(500).json({ error: 'OMDB API key not set!' });
-    }
     try {
         const response = await axios.get(`http://www.omdbapi.com/?i=${id}&apikey=${OMDB_API_KEY}`);
         res.json(response.data);
@@ -52,25 +36,15 @@ app.get('/api/movie/:id', async (req, res) => {
     }
 });
 
-// ------------------- Reviews & Reports Routes -------------------
+// ✅ Reviews routes import
 const reviewRoutes = require('./routes/reviewRoutes');
-const reportRoutes = require('./routes/reportRoutes');
-
 app.use('/api/reviews', reviewRoutes);
-app.use('/api/reports', reportRoutes);
 
-// ------------------- Frontend Static Serve (Root Folder) -------------------
-const frontendPath = path.join(__dirname, '..');
+// Start server
+app.listen(PORT, () => console.log(`🚀 Backend running on port ${PORT}`));
 
-app.use(express.static(frontendPath));
+// ✅ Reports route import
+const reportRoutes = require("./routes/reportRoutes");
+app.use("/api/reports", reportRoutes);
 
-app.get('*', (req, res) => {
-    if (!req.path.startsWith('/api')) {
-        res.sendFile(path.join(frontendPath, 'index.html'));
-    } else {
-        res.status(404).json({ error: 'API route not found' });
-    }
-});
 
-// ------------------- Export for Vercel -------------------
-module.exports = app;
