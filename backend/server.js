@@ -1,4 +1,8 @@
+// Load environment variables first
 require('dotenv').config();
+
+console.log('Starting server...');
+console.log('Environment:', process.env.NODE_ENV || 'development');
 
 const express = require('express');
 const axios = require('axios');
@@ -12,8 +16,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Request logging middleware
+app.use((req, res, next) => {
+    console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+    next();
+});
+
 // ------------------- MongoDB Connect -------------------
-mongoose.connect(process.env.MONGO_URI, {
+console.log('Connecting to MongoDB...');
+console.log('MongoDB URI:', process.env.MONGODB_URI ? '***MongoDB URI is set***' : 'MongoDB URI is NOT set!');
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/movieDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     dbName: 'movieDB'

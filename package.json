@@ -1,14 +1,14 @@
 {
-  "name": "backend",
+  "name": "movie-review-app",
   "version": "1.0.0",
-  "description": "Movie Review Backend",
-  "main": "server.js",
+  "description": "Movie Review Application",
+  "main": "api/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "dev": "node api/index.js",
+    "start": "node api/index.js",
+    "vercel-build": "cd backend && npm install"
   },
- 
-  "keywords": [],
+  "keywords": ["movie", "review", "node", "express"],
   "author": "Ankit Badoni",
   "license": "ISC",
   "dependencies": {
@@ -21,6 +21,9 @@
     "mongoose": "^8.18.1",
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=14.x"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
