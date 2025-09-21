@@ -90,7 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!title) return;
 
       try {
-        const res = await fetch(`http://localhost:5000/api/reviews/title/${encodeURIComponent(title)}`);
+      const res = await fetch(`/api/reviews/title/${encodeURIComponent(title)}`);
+
         const data = await res.json();
         if (data.movieId) window.location.href = `movie_review.html?id=${data.movieId}`;
         else alert("Movie ID not found for " + title);
