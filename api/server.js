@@ -53,8 +53,8 @@ app.get('/api/movie/:id', async (req, res) => {
 });
 
 // ------------------- Reviews & Reports Routes -------------------
-const reviewRoutes = require('./routes/reviewRoutes');
-const reportRoutes = require('./routes/reportRoutes');
+const reviewRoutes = require('../backend/routes/reviewRoutes');
+const reportRoutes = require('../backend/routes/reportRoutes');
 
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/reports', reportRoutes);
