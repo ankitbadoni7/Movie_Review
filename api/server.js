@@ -23,10 +23,10 @@ app.use((req, res, next) => {
 });
 
 // ------------------- MongoDB Connect -------------------
-const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/movieDB';
+const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/movieDB';
 
 console.log('Connecting to MongoDB...');
-console.log('MongoDB URI:', process.env.MONGODB_URI ? '***MongoDB URI is set***' : 'MongoDB URI is NOT set!');
+console.log('MongoDB URI:', process.env.MONGO_URI ? '***MongoDB URI is set***' : 'MongoDB URI is NOT set!');
 
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
