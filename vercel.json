@@ -1,12 +1,10 @@
 {
-  "version": 2,
-  "functions": {
-    "api/server.js": {
-      "runtime": "@vercel/node@2.15.10"
-    }
+  "name": "movie-review",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node api/server.js"
   },
-  "routes": [
-    { "src": "/api/(.*)", "dest": "api/server.js" },
-    { "src": "/(.*)", "dest": "/$1" }
-  ]
+  "engines": {
+    "node": "18.x"
+  }
 }
