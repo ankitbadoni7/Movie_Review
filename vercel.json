@@ -15,9 +15,9 @@
     { "src": "/index.html", "dest": "/index.html" },
     { "src": "/movies.html", "dest": "/movies.html" },
     { "src": "/report.html", "dest": "/report.html" },
-    { "src": "/reviews.html", "dest": "/movie_review.html" },
+    { "src": "/movie_review.html", "dest": "/movie_review.html" },
     { "src": "/series.html", "dest": "/series.html" },
-    { "src": "/series.html", "dest": "/about.html" },
+    { "src": "/about.html", "dest": "/about.html" },
 
 
     { "src": "/(.*)", "dest": "/index.html" }
