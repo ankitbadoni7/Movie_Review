@@ -1,10 +1,19 @@
 {
-  "name": "movie-review",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "node api/server.js"
-  },
-  "engines": {
-    "node": "18.x"
-  }
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 }
