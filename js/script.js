@@ -2,6 +2,12 @@
 // 🔹 DOMContentLoaded - All Events
 // ----------------------
 document.addEventListener("DOMContentLoaded", () => {
+  // ----------------------
+  // 🔹 Base URL Setup
+  // ----------------------
+  const baseURL = window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "https://movie-review-git-main-ankit-badonis-projects.vercel.app/api"; // <- apne backend project ka URL yaha daalna
 
   // ----------------------
   // 🔹 Slider
@@ -90,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!title) return;
 
       try {
-        const res = await fetch(`http://localhost:5000/api/reviews/title/${encodeURIComponent(title)}`);
+        const res = await fetch(`${baseURL}/api/reviews/title/${encodeURIComponent(title)}`);
         const data = await res.json();
         if (data.movieId) window.location.href = `movie_review.html?id=${data.movieId}`;
         else alert("Movie ID not found for " + title);
@@ -178,9 +184,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }, observerOptions);
 
   document.querySelectorAll('section, .movie-card, .review-card').forEach(el => observer.observe(el));
-
 });
-// Mobile Menu Search
+
+// ----------------------
+// 🔹 Mobile Menu Search
+// ----------------------
 const searchInputMobile = document.getElementById("searchInputMobile");
 const searchButtonMobile = document.getElementById("searchBtnMobile");
 
@@ -189,7 +197,7 @@ if (searchInputMobile && searchButtonMobile) {
     const query = searchInputMobile.value.toLowerCase().trim();
     let anyVisible = false;
 
-    movieCards.forEach(card => {
+    document.querySelectorAll(".movie-card").forEach(card => {
       const title = card.querySelector("h1")?.textContent.toLowerCase() || "";
       if (title.includes(query)) {
         card.style.display = "block";
@@ -197,6 +205,7 @@ if (searchInputMobile && searchButtonMobile) {
       } else card.style.display = "none";
     });
 
+    const noMovies = document.getElementById("noMovies");
     if (noMovies) noMovies.style.display = anyVisible ? "none" : "block";
   });
 
