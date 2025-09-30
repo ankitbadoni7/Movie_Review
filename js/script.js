@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         else alert("Movie ID not found for " + title);
       } catch (err) {
         console.error(err);
-        alert("Error fetching movie ID");
+        alert("Movie review not added yet.");
       }
     });
   });

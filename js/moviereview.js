@@ -55,7 +55,7 @@ const movieId = new URLSearchParams(window.location.search).get('id');
         document.getElementById('poster').src = movie.Poster && movie.Poster !== 'N/A' ? movie.Poster : 'img/no-poster.png';
         document.getElementById('rating').innerText = movie.imdbRating ? `⭐ ${movie.imdbRating}/10` : '⭐ N/A';
     } catch (err) {
-        document.getElementById('error').innerText = 'Error loading movie: ' + err.message;
+        document.getElementById('error').innerText = 'Movie review not added yet. Sorry for the inconvenience.' ;
     }
 })();
 
@@ -119,91 +119,4 @@ document.addEventListener("DOMContentLoaded", async () => {
         reviewParagraph.innerHTML = "No review available";
     }
 });
-
-// ==========================
-// Comments system
-// ==========================
-const reviewForm = document.getElementById('reviewForm');
-const commentNameInput = document.getElementById('name');
-const commentTextInput = document.getElementById('review');
-
-
-// Container to render comments dynamically
-let commentsContainer = document.createElement('div');
-commentsContainer.id = 'commentsContainer';
-commentsContainer.style.marginTop = '20px';
-reviewForm.parentNode.insertBefore(commentsContainer, reviewForm.nextSibling);
-
-async function fetchComments() {
-    try {
-        const res = await fetch(`http://localhost:5000/api/comments/${movieId}`);
-        const data = await res.json();
-
-        if (data.success && Array.isArray(data.comments)) {
-            if (data.comments.length === 0) {
-                commentsContainer.innerHTML = '<p>No comments yet.</p>';
-            } else {
-                renderComments(data.comments);
-            }
-        } else {
-            commentsContainer.innerHTML = '<p>No comments yet.</p>';
-        }
-    } catch (err) {
-        console.error("Error fetching comments:", err);
-        commentsContainer.innerHTML = '<p>No comments yet.</p>';
-    }
-}
-
-
-function renderComments(comments) {
-    commentsContainer.innerHTML = '';
-    comments.forEach(c => {
-        const div = document.createElement('div');
-        div.className = 'comment-card';
-        div.style.border = '1px solid #ccc';
-        div.style.padding = '10px';
-        div.style.marginBottom = '10px';
-        div.style.borderRadius = '5px';
-
-        div.innerHTML = `
-            <strong>${c.userName}</strong> <span style="color: gray; font-size: 0.8rem;">(${new Date(c.createdAt).toLocaleString()})</span>
-            <p>${c.commentText}</p>
-        `;
-        commentsContainer.appendChild(div);
-    });
-}
-
-reviewForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const commentName = commentNameInput.value.trim();
-    const commentText = commentTextInput.value.trim();
-    if (!commentName || !commentText) return alert('Name and comment cannot be empty');
-
-    try {
-        const res = await fetch(`http://localhost:5000/api/comments`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            credentials: 'include',
-            body: JSON.stringify({ commentText, movieId })
-        });
-
-        const data = await res.json();
-
-        if (data.success) {
-            alert('Comment submitted successfully!'); // ✅ success message
-            commentTextInput.value = '';
-            fetchComments(); // ✅ refresh comments
-        } else {
-            alert(data.message || 'Failed to submit comment');
-        }
-    } catch (err) {
-        console.error("Error submitting comment:", err);
-        alert('Error submitting comment');
-    }
-});
-
-
-// Call fetchComments on page load
-fetchComments();
-
 

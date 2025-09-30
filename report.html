@@ -220,7 +220,7 @@
                 alert(data.message || "Report submitted!");
                 document.getElementById("reportForm").reset();
             } catch (error) {
-                alert("❌ Failed to submit report");
+                alert("❌ Could not submit report. Please try later. ✅");
                 console.error(error);
             }
         });
